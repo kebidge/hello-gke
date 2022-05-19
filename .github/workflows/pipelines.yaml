@@ -34,6 +34,12 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
+      - name: Setup PMD Source Code Analyzer
+        uses: sfdx-actions/setup-pmd@v1
+    
+      - name: Run PMD Source Code Analyzer
+        run: pmd -d ./src -R pmd_ruleset.xml -f text
+
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
         env:
