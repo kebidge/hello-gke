@@ -12,5 +12,6 @@ spec:
       protocol: TCP
       name: http
     - port: 443
+      targetPort: 8081
       protocol: TCP
       name: https
