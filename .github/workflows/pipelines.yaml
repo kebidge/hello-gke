@@ -31,8 +31,18 @@ jobs:
           server-id: github
           settings-path: ${{github.workspace}}
 
+      - name: List target directory items BEFORE
+        run: |
+          cd target
+          ls -la
+
       - name: Build with Maven
         run: mvn clean package -DskipTests
+
+      - name: List target directory items AFTER
+        run: |
+          cd target
+          ls -la
 
       - name: Cache executable JAR
         uses: actions/upload-artifact@v3
@@ -66,13 +76,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: List target directory items BEFORE
+        run: |
+          cd target
+          ls -la
+
       - name: Download cached executable JAR
         uses: actions/download-artifact@v3
         with:
           name: executable-JAR
           path: target/hello-gke-0.0.1-SNAPSHOT.jar
 
-      - name: List target directory items
+      - name: List target directory items AFTER
         run: |
           cd target
           ls -la
