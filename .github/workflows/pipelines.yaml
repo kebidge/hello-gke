@@ -16,7 +16,7 @@ env:
 # setup-build-publish-deploy:
 
 jobs:
-  Setup and Build:  
+  Build:  
     name: Runs on Ubuntu
     runs-on: ubuntu-latest
 
@@ -36,7 +36,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
   
-  Test and Code Analysis:  
+  Test:  
     name: Setup and Run PMD Source Code Analyzer
     runs-on: ubuntu-latest
 
@@ -48,7 +48,7 @@ jobs:
       - name: Run PMD Source Code Analyzer
         run: pmd -d ./src -R pmd_ruleset.xml -f text
 
-  Publish and Deploy:  
+  Deploy:  
     name: Deploy on Google K8s Engine
     runs-on: ubuntu-latest
 
