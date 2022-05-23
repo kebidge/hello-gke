@@ -13,8 +13,6 @@ env:
   IMAGE: hello-gke-image
   TAG: 1.0.0
 
-# setup-build-publish-deploy:
-
 jobs:
   build:  
     name: Build
