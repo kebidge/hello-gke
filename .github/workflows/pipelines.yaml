@@ -42,6 +42,9 @@ jobs:
 
     steps:
 
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Setup PMD Source Code Analyzer
         uses: sfdx-actions/setup-pmd@v1
     
@@ -53,6 +56,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
