@@ -40,6 +40,8 @@ jobs:
     name: Setup and Run PMD Source Code Analyzer
     runs-on: ubuntu-latest
 
+    steps:
+
       - name: Setup PMD Source Code Analyzer
         uses: sfdx-actions/setup-pmd@v1
     
@@ -49,6 +51,8 @@ jobs:
   Publish and Deploy:  
     name: Deploy on Google K8s Engine
     runs-on: ubuntu-latest
+
+    steps:
 
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
