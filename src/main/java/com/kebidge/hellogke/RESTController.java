@@ -18,6 +18,11 @@ class RESTController {
 		return "Hello Kebidge!";
 	}
 
+	@GetMapping("/fidel")
+	public String helloFidel() {
+		return "Hello Fidel!";
+	}
+
 	@GetMapping("/hello/{parameter}")
 	public String helloParameter(@PathVariable String parameter) {
 		return "Hello " + parameter + "!";
