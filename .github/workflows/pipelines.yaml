@@ -63,14 +63,14 @@ jobs:
 
     steps:
 
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Download cached executable JAR
         uses: actions/download-artifact@v3
         with:
           name: executable-JAR
           path: target/hello-gke-0.0.1-SNAPSHOT.jar
-
-      - name: Checkout Repository
-        uses: actions/checkout@v3
 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
