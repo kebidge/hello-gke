@@ -37,7 +37,7 @@ jobs:
       - name: Cache executable JAR
         uses: actions/upload-artifact@v3
         with:
-          name: executable-JAR
+          name: hello-gke-0.0.1-SNAPSHOT.jar
           path: target/hello-gke-0.0.1-SNAPSHOT.jar
   
   test:  
@@ -66,7 +66,7 @@ jobs:
       - name: Download cached executable JAR
         uses: actions/download-artifact@v3
         with:
-          name: executable-JAR
+          name: hello-gke-0.0.1-SNAPSHOT.jar
 
       - name: Checkout Repository
         uses: actions/checkout@v3
