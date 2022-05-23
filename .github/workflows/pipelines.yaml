@@ -31,9 +31,8 @@ jobs:
           server-id: github
           settings-path: ${{github.workspace}}
 
-      - name: List target directory items BEFORE
+      - name: List directory items BEFORE
         run: |
-          cd target
           ls -la
 
       - name: Build with Maven
@@ -41,6 +40,7 @@ jobs:
 
       - name: List target directory items AFTER
         run: |
+          ls -la
           cd target
           ls -la
 
@@ -76,9 +76,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: List target directory items BEFORE
+      - name: List directory items BEFORE
         run: |
-          cd target
           ls -la
 
       - name: Download cached executable JAR
@@ -89,6 +88,7 @@ jobs:
 
       - name: List target directory items AFTER
         run: |
+          ls -la
           cd target
           ls -la
 
