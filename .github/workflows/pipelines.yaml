@@ -13,9 +13,11 @@ env:
   IMAGE: hello-gke-image
   TAG: 1.0.0
 
+# setup-build-publish-deploy:
+
 jobs:
-  setup-build-publish-deploy:
-    name: Setup Build Publish Deploy
+  Setup and Build:  
+    name: Runs on Ubuntu
     runs-on: ubuntu-latest
 
     steps:
@@ -33,12 +35,20 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
+  
+  Test and Code Analysis:  
+    name: Setup and Run PMD Source Code Analyzer
+    runs-on: ubuntu-latest
 
       - name: Setup PMD Source Code Analyzer
         uses: sfdx-actions/setup-pmd@v1
     
       - name: Run PMD Source Code Analyzer
         run: pmd -d ./src -R pmd_ruleset.xml -f text
+
+  Publish and Deploy:  
+    name: Deploy on Google K8s Engine
+    runs-on: ubuntu-latest
 
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
