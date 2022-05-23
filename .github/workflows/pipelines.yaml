@@ -33,6 +33,12 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
+
+      - name: Cache executable JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: executable-JAR
+          path: target/hello-gke-0.0.1-SNAPSHOT.jar
   
   test:  
     name: Test
@@ -56,6 +62,11 @@ jobs:
     needs: [test]
 
     steps:
+
+      - name: Download cached executable JAR
+        uses: actions/download-artifact@v3
+        with:
+          name: executable-JAR
 
       - name: Checkout Repository
         uses: actions/checkout@v3
