@@ -44,11 +44,11 @@ jobs:
           cd target
           ls -la
 
-      - name: Cache executable JAR
+      - name: Cache Target Directory
         uses: actions/upload-artifact@v3
         with:
-          name: executable-JAR
-          path: target/hello-gke-0.0.1-SNAPSHOT.jar
+          name: target-directory
+          path: target
   
   test:  
     name: Test
@@ -80,11 +80,15 @@ jobs:
         run: |
           ls -la
 
-      - name: Download cached executable JAR
+      - name: Download Target Directory
         uses: actions/download-artifact@v3
         with:
-          name: executable-JAR
-          path: target/hello-gke-0.0.1-SNAPSHOT.jar
+          name: target-directory
+          path: target
+    
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: target
 
       - name: List target directory items AFTER
         run: |
