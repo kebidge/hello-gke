@@ -23,6 +23,11 @@ class RESTController {
 		return "Hello Fidel!";
 	}
 
+	@GetMapping("/pipeline")
+	public String helloPipeline() {
+		return "Build - Test - Deploy";
+	}
+
 	@GetMapping("/hello/{parameter}")
 	public String helloParameter(@PathVariable String parameter) {
 		return "Hello " + parameter + "!";
