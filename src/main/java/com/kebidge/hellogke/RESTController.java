@@ -13,6 +13,11 @@ class RESTController {
 		return "Hello World!";
 	}
 
+    @RequestMapping("/")
+	String helloTest() {
+		return "Hello Test!";
+	}
+
 	@GetMapping("/kebidge")
 	public String helloKebidge() {
 		return "Hello Kebidge!";
