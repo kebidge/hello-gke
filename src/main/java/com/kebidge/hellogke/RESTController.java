@@ -13,7 +13,7 @@ class RESTController {
 		return "Hello World!";
 	}
 
-    @RequestMapping("/")
+    @RequestMapping("/test")
 	String helloTest() {
 		return "Hello Test!";
 	}
