@@ -15,7 +15,7 @@ class RESTController {
 
     @RequestMapping("/test")
 	String helloTest() {
-		return "Hello Test!";
+		return "Hello new Test!";
 	}
 
 	@GetMapping("/kebidge")
